@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Diary</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='mystyle.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="banner">
+            <div class="container">
+                <h1>Your word, "{{word}}", could not be found</h1>
+                {% if suggestions %}
+                <h3>Here are some suggested words</h3>
+                {% for suggestion in suggestions %}
+                <a href="/detail/{{suggestion}}" class="btn btn-primary" style="margin: 0 8px 8px 0;">
+                    {{suggestion}}
+                </a>
+                {% endfor %} {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
